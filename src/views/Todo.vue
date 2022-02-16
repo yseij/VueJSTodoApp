@@ -14,7 +14,7 @@
     <v-list flat class="pt-0" v-if="$store.state.tasks.length">
       <div v-for="task in $store.state.tasks" :key="task.id">
         <v-list-item
-          @click="doneTask(task.id)"
+          @click="$store.commit('doneTask', task.id)"
           :class="{ 'blue lighten-5': task.done }"
         >
           <template v-slot:default>
@@ -55,12 +55,7 @@ export default {
   },
   methods: {
     addTask() {
-      let newTask = {
-        id: Date.now(),
-        title: this.newTaskTitle,
-        done: false,
-      };
-      this.tasks.push(newTask);
+      this.$store.commit("addTask", this.newTaskTitle);
       this.newTaskTitle = "";
     },
     doneTask(id) {
