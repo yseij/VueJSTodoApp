@@ -54,6 +54,9 @@ export default new Vuex.Store({
         state.snackbar.text = text;
       }, timout);
     },
+    hideSnackbar(state) {
+      state.snackbar.show = false;
+    },
   },
   actions: {
     addTask({ commit }, newTaskTitle) {
