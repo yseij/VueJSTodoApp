@@ -28,7 +28,7 @@
     </v-list>
 </template>
 
-<script>S
+<script>
 export default {
 
 }
