@@ -11,13 +11,7 @@
         <v-btn color="gray darken-1" text @click="$emit('close')">
           Cancel
         </v-btn>
-        <v-btn
-          color="red darken-1"
-          text
-          @click="$store.dispatch('deleteTask', task.id)"
-        >
-          Save
-        </v-btn>
+        <v-btn color="red darken-1" text @click="saveTask"> Save </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -30,6 +24,15 @@ export default {
     return {
       taskTitle: null,
     };
+  },
+  methods: {
+    saveTask() {
+      let payload = {
+        id: this.task.id,
+        title: this.taskTitle,
+      };
+      this.$store.commit("updateTaskTitle", payload);
+    },
   },
   mounted() {
     this.taskTitle = this.task.title;
