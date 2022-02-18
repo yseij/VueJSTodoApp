@@ -2,8 +2,8 @@
   <v-text-field
     @focus="searchClosed = false"
     @blur="searchClosed = true"
-    class="expanding-search mt-1"
     :class="{ closed: searchClosed }"
+    class="expanding-search mt-1"
     placeholder="Search"
     filled
     dense
