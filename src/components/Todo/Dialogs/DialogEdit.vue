@@ -4,7 +4,7 @@
       <v-card-title class="text-h5"> Edit Task? </v-card-title>
       <v-card-text
         >Edit the title of a task
-        <v-text-field />
+        <v-text-field v-model="taskTitle" />
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
@@ -26,6 +26,14 @@
 <script>
 export default {
   props: ["task"],
+  data() {
+    return {
+      taskTitle: null,
+    };
+  },
+  mounted() {
+    this.taskTitle = this.task.title;
+  },
 };
 </script>
 
