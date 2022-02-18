@@ -16,10 +16,16 @@
 
 <script>
 export default {
+  props: ["task"],
   data() {
     return {
       date: null,
     };
+  },
+  mounted() {
+    if (this.task.dueDate) {
+      this.date = this.task.dueDate;
+    }
   },
 };
 </script>
