@@ -1,18 +1,18 @@
 <template>
   <v-list flat class="pt-0">
-    <task 
-    v-for="task in $store.state.tasks" 
-    :key="task.id" 
-    :task="task"
+    <task
+      v-for="task in $store.getters.tasksFiltered"
+      :key="task.id"
+      :task="task"
     />
-        <v-divider></v-divider>
-    </v-list>
+    <v-divider></v-divider>
+  </v-list>
 </template>
 
 <script>
 export default {
-components : {
-    'task' : require('@/components/Todo/Task.vue').default
-  }
-}
+  components: {
+    task: require("@/components/Todo/Task.vue").default,
+  },
+};
 </script>
