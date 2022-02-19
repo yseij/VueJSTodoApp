@@ -31,13 +31,16 @@
         ></v-img>
       </template>
 
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-app-bar-title>Veutify Todo</v-app-bar-title>
-
-      <v-spacer></v-spacer>
-
-      <search />
+      <v-container class="pa-0">
+        <v-row>
+          <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+          <v-spacer></v-spacer>
+          <search />
+        </v-row>
+        <v-row>
+          <v-app-bar-title class="ml-4">Veutify Todo</v-app-bar-title>
+        </v-row>
+      </v-container>
     </v-app-bar>
 
     <v-main>
@@ -48,7 +51,6 @@
 </template>
 
 <script>
-
 export default {
   data: () => ({
     drawer: null,
