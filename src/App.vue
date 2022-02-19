@@ -1,14 +1,11 @@
 <template>
   <v-app id="inspire">
     <v-navigation-drawer v-model="drawer" app>
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title class="text-h6"> Vuetify Todo </v-list-item-title>
-          <v-list-item-subtitle> Best Todo Ever </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-divider></v-divider>
+      <v-img
+        src="mountains.jpg"
+        height="170"
+        gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+      ></v-img>
 
       <v-list dense nav>
         <v-list-item v-for="item in items" :key="item.title" :to="item.to" link>
