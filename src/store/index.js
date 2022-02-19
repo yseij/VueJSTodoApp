@@ -107,8 +107,13 @@ export default new Vuex.Store({
         });
     },
     deleteTask({ commit }, id) {
-      commit("deleteTask", id);
-      commit("showSnackbar", "Task deleted");
+      db.collection("tasks")
+        .doc({ id: id })
+        .delete()
+        .then(() => {
+          commit("deleteTask", id);
+          commit("showSnackbar", "Task deleted");
+        });
     },
     updateTaskTitle({ commit }, payload) {
       db.collection("tasks")
@@ -122,8 +127,15 @@ export default new Vuex.Store({
         });
     },
     updateTaskDueDate({ commit }, payload) {
-      commit("updateTaskDueDate", payload);
-      commit("showSnackbar", "Due Date updated");
+      db.collection("tasks")
+        .doc({ id: payload.id })
+        .update({
+          dueDate: payload.dueDate,
+        })
+        .then(() => {
+          commit("updateTaskDueDate", payload);
+          commit("showSnackbar", "Due Date updated");
+        });
     },
     getTasks({ commit }) {
       db.collection("tasks")
