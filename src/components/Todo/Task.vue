@@ -3,6 +3,8 @@
     <v-list-item
       @click="$store.commit('doneTask', task.id)"
       :class="{ 'blue lighten-5': task.done }"
+      class="white"
+      :ripple="false"
     >
       <template v-slot:default>
         <v-list-item-action>
@@ -50,3 +52,10 @@ export default {
   },
 };
 </script>
+
+<style lang="sass">
+.sortable-ghost
+  opacity: 0
+.sortabl-drag
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3)
+</style>
