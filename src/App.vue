@@ -80,6 +80,9 @@ export default {
       return process.env.VUE_APP_TITLE;
     },
   },
+  mounted() {
+    this.$store.dispatch("getTasks");
+  },
   components: {
     snackbar: require("@/components/Shared/Snackbar.vue").default,
     search: require("@/components/Tools/Search.vue").default,
