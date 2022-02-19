@@ -1,6 +1,6 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer v-model="drawer" app>
+    <v-navigation-drawer v-model="drawer" :mobile-breakpoint="768" app>
       <v-img
         class="pa-4 pt-7"
         src="mountains.jpg"
@@ -42,7 +42,7 @@
         ></v-img>
       </template>
 
-      <v-container class="pa-0">
+      <v-container class="header-container pa-0">
         <v-row>
           <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
           <v-spacer></v-spacer>
@@ -80,3 +80,8 @@ export default {
   },
 };
 </script>
+
+<style lang="sass">
+.header-container
+  max-width: none !important
+</style>
