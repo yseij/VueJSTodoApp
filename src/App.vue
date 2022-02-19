@@ -49,7 +49,7 @@
           <search />
         </v-row>
         <v-row>
-          <v-app-bar-title class="ml-4 text-h4">Veutify Todo</v-app-bar-title>
+          <v-app-bar-title class="ml-4 text-h4">{{ appTitle }}</v-app-bar-title>
         </v-row>
         <v-row>
           <live-date-time />
@@ -73,6 +73,11 @@ export default {
       { title: "About", icon: "mdi-help-box", to: "/about" },
     ],
   }),
+  computed: {
+    appTitle() {
+      return process.env.VUE_APP_TITLE;
+    },
+  },
   components: {
     snackbar: require("@/components/Shared/Snackbar.vue").default,
     search: require("@/components/Tools/Search.vue").default,
