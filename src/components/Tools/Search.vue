@@ -1,8 +1,9 @@
 <template>
   <v-text-field
+    v-model="search"
     @focus="searchClosed = false"
     @blur="searchClosed = true"
-    :class="{ closed: searchClosed }"
+    :class="{ closed: searchClosed && !search }"
     class="expanding-search mt-1"
     placeholder="Search"
     filled
@@ -16,6 +17,7 @@
 export default {
   data() {
     return {
+      search: null,
       searchClosed: true,
     };
   },
@@ -26,6 +28,7 @@ export default {
 .expanding-search
   transition: max-width 0.3s
   .v-input__slot
+    cursor: pointer !important
     &:before, &after
       border-color: transparant !important
   &.closed
