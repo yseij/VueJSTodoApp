@@ -2,14 +2,16 @@
   <v-app id="inspire">
     <v-navigation-drawer v-model="drawer" app>
       <v-img
-        class="pa-2"
+        class="pa-4 pt-7"
         src="mountains.jpg"
         height="170"
         gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
       >
-        <v-avatar size="70">
+        <v-avatar size="70" class="mb-2">
           <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
         </v-avatar>
+        <div class="white--text text-subtitle-1 font-weight-bold">Youri</div>
+        <div class="white--text text-subtitle-2 font-weight-bold">Seijkens</div>
       </v-img>
 
       <v-list dense nav>
@@ -65,7 +67,7 @@
 <script>
 export default {
   data: () => ({
-    drawer: true,
+    drawer: null,
     items: [
       { title: "Todo", icon: "mdi-format-list-checks", to: "/" },
       { title: "About", icon: "mdi-help-box", to: "/about" },
