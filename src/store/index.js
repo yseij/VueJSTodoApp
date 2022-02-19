@@ -4,6 +4,7 @@ import Vuex from "vuex";
 import Localbase from "localbase";
 
 let db = new Localbase("db");
+db.config.debug = false;
 
 Vue.use(Vuex);
 
@@ -136,6 +137,10 @@ export default new Vuex.Store({
           commit("updateTaskDueDate", payload);
           commit("showSnackbar", "Due Date updated");
         });
+    },
+    setTasks({ commit }, tasks) {
+      db.collection("tasks").set(tasks);
+      commit("setTasks", tasks);
     },
     getTasks({ commit }) {
       db.collection("tasks")
