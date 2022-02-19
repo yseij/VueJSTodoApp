@@ -33,7 +33,7 @@
       dark
       src="mountains.jpg"
       prominent
-      height="238"
+      :height="$route.path === '/' ? '238' : '170'"
     >
       <template v-slot:img="{ props }">
         <v-img
@@ -56,7 +56,7 @@
         <v-row>
           <live-date-time />
         </v-row>
-        <v-row> <field-add-task /></v-row>
+        <v-row v-if="$route.path == '/'"> <field-add-task /></v-row>
       </v-container>
     </v-app-bar>
 
